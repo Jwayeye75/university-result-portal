@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/table"
 import { AddCourseDialog } from './add-course-dialog';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CoursesPage() {
   const supabase = createClient();
   
@@ -27,8 +29,8 @@ export default async function CoursesPage() {
         <AddCourseDialog />
       </div>
 
-      <div className="border border-border rounded-md bg-card">
-        <Table>
+      <div className="border border-border rounded-md bg-card overflow-x-auto w-full">
+        <Table className="min-w-[600px]">
           <TableHeader>
             <TableRow>
               <TableHead className="font-mono">Course Code</TableHead>

@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { UploadForm } from './upload-form';
-import { BulkUpload } from './bulk-upload'; // <-- ADD THIS IMPORT
+import { BulkUpload } from './bulk-upload';
 import {
   Table,
   TableBody,
@@ -34,7 +34,6 @@ export default async function UploadResultsPage() {
         <p className="font-mono text-muted-foreground mt-2">Publish grades manually or upload a batch CSV file.</p>
       </div>
 
-      {/* Grid Layout: Manual form on the left, Bulk upload on the right! */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <UploadForm students={students || []} courses={courses || []} />
         <BulkUpload students={students || []} courses={courses || []} />
@@ -42,8 +41,8 @@ export default async function UploadResultsPage() {
 
       <div className="space-y-4 pt-6">
         <h3 className="text-xl font-serif tracking-tight">Recently Uploaded</h3>
-        <div className="border border-border rounded-md bg-card">
-          <Table>
+        <div className="border border-border rounded-md bg-card overflow-x-auto w-full">
+          <Table className="min-w-[600px]">
             <TableHeader>
               <TableRow>
                 <TableHead className="font-mono">Student</TableHead>
