@@ -12,7 +12,6 @@ import { PrintButton } from './print-button';
 
 export const dynamic = 'force-dynamic';
 
-// Helper to convert letter grade to points (Standard 5.0 Scale)
 const getGradePoints = (grade: string) => {
   switch (grade.toUpperCase()) {
     case 'A': return 5;
@@ -53,7 +52,6 @@ export default async function MyResultsPage() {
       
     results = data || [];
 
-    // Calculate GPA
     if (results.length > 0) {
       let totalQualityPoints = 0;
       
@@ -74,13 +72,11 @@ export default async function MyResultsPage() {
   return (
     <div className="space-y-6">
       
-      {/* 1. Official Print-Only Header (Hidden on the website, visible on the PDF) */}
       <div className="hidden print:block text-center mb-8 border-b-2 border-foreground pb-4">
         <h1 className="text-4xl font-serif font-bold tracking-widest uppercase">University Result Portal</h1>
         <p className="font-mono text-muted-foreground mt-1">Official Student Academic Transcript</p>
       </div>
 
-      {/* 2. Web Header & Print Button */}
       <div className="flex justify-between items-center print:hidden">
         <div>
           <h2 className="text-3xl font-serif tracking-tight text-success">My Results</h2>
@@ -91,7 +87,6 @@ export default async function MyResultsPage() {
 
       {student ? (
         <div className="grid gap-4 md:grid-cols-2">
-          {/* Profile Card */}
           <Card className="border-info/20 bg-card">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg font-serif">Student Profile</CardTitle>
@@ -104,7 +99,6 @@ export default async function MyResultsPage() {
             </CardContent>
           </Card>
 
-          {/* Academic Standing Card */}
           <Card className="border-success/20 bg-card">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg font-serif">Academic Standing</CardTitle>
@@ -129,8 +123,8 @@ export default async function MyResultsPage() {
         </div>
       )}
 
-      <div className="border border-border rounded-md bg-card mt-6">
-        <Table>
+      <div className="border border-border rounded-md bg-card mt-6 overflow-x-auto w-full">
+        <Table className="min-w-[600px]">
           <TableHeader>
             <TableRow>
               <TableHead className="font-mono">Course Code</TableHead>
