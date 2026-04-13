@@ -19,16 +19,15 @@ const config = {
     },
     extend: {
       fontFamily: {
-        // Enforces Georgia for headings
-        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'], 
-        // Enforces standard monospace for data/codes
+        sans: ['"DM Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
       },
       colors: {
-        // Your Custom Brand Colors
-        success: { DEFAULT: '#00e5a0', foreground: '#000000' },
-        info: { DEFAULT: '#60cfff', foreground: '#000000' },
-        failure: { DEFAULT: '#ff6b6b', foreground: '#ffffff' },
+        // Brand Colors
+        success: { DEFAULT: '#22C55E', light: '#DCFCE7', dark: '#15803D', foreground: '#ffffff' },
+        info: { DEFAULT: '#3B82F6', foreground: '#ffffff' },
+        failure: { DEFAULT: '#EF4444', foreground: '#ffffff' },
+        warning: { DEFAULT: '#F59E0B', light: '#FEF08A', foreground: '#000000' },
         
         // shadcn/ui defaults mapped to CSS variables
         border: "hsl(var(--border))",
